@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eef8ff">
+<title>Shillong Tours Hire n Go | Book a Ride</title>
+<style>
+:root{--blue:#1687d9;--deep:#103b60;--pale:#eaf6ff;--ink:#142b3d;--muted:#6c8192;--line:#dce8f0;--white:#fff;--green:#16794a}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f8fc;color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:520px;margin:0 auto;min-height:100vh;background:#f7fbfe;padding:0 0 28px}
+.top{padding:20px 20px 18px;background:linear-gradient(145deg,#e7f5ff,#f8fcff 70%);border-bottom:1px solid #e1edf5}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:42px;height:42px;border-radius:14px;background:var(--blue);display:grid;place-items:center;color:white;font-size:21px;font-weight:800;box-shadow:0 6px 16px #1687d933}
+.brandname{font-size:15px;font-weight:800;letter-spacing:-.2px;color:var(--deep)}
+.brandtag{font-size:11px;color:var(--muted);margin-top:1px}
+.hero{padding:24px 20px 20px}
+.eyebrow{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}
+h1{font-size:29px;line-height:1.13;letter-spacing:-.9px;margin:7px 0 8px;color:#123a5a}
+.sub{font-size:13px;color:var(--muted);margin:0;max-width:340px}
+.card{margin:0 14px 14px;padding:17px 16px;background:white;border:1px solid var(--line);border-radius:19px;box-shadow:0 5px 18px #123b5b08}
+.section-title{font-size:15px;font-weight:800;color:#163b58;margin:0 0 12px}
+.options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 7px;text-align:center;color:#526c7f;font-size:12px;font-weight:700;cursor:pointer}
+.opt span{display:block;font-size:19px;margin-bottom:4px}
+.opt.active{border-color:var(--blue);background:#eff8ff;color:#126eb2;box-shadow:inset 0 0 0 1px #1687d922}
+.cars{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.car{border:1.5px solid var(--line);border-radius:15px;padding:9px;background:white;text-align:left;cursor:pointer;min-width:0}
+.car.active{border-color:var(--blue);background:#f3faff;box-shadow:0 0 0 2px #1687d91a}
+.car-art{height:86px;border-radius:10px;background:linear-gradient(135deg,#eaf5fc,#dbeefa);display:grid;place-items:center;overflow:hidden}
+.car-art svg{width:100%;height:100%}
+.car-name{font-weight:800;font-size:14px;margin:8px 2px 1px;color:#153d5c}
+.car-note{font-size:11px;color:var(--muted);margin:0 2px}
+.other{margin-top:10px;border:1px dashed #b6cddd;border-radius:12px;padding:11px 12px;color:#557286;font-size:12px;background:#fbfdff}
+label{display:block;font-size:12px;font-weight:700;color:#496478;margin:0 0 6px}
+.field{margin-bottom:12px}
+input,select,textarea{width:100%;border:1px solid #d6e3ec;background:#fff;border-radius:11px;padding:12px 12px;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #1687d91b}
+textarea{min-height:72px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:11px;color:var(--muted);margin:-3px 0 11px}
+.submit{display:block;width:100%;border:0;border-radius:13px;padding:14px 16px;background:var(--blue);color:white;font-size:14px;font-weight:800;box-shadow:0 7px 16px #1687d92e;cursor:pointer}
+.submit:active{transform:translateY(1px)}
+.foot{text-align:center;color:#7d91a0;font-size:10px;padding:5px 18px 0}
+.notice{display:none;margin:0 14px 14px;padding:14px 16px;border-radius:14px;background:#e9f8ef;border:1px solid #bde6cc;color:#17623f;font-size:13px}
+.notice.show{display:block}
+.hidden{display:none!important}
+
+.modal-backdrop{position:fixed;inset:0;background:#0c2238a8;display:none;align-items:center;justify-content:center;padding:18px;z-index:1000}
+.modal-backdrop.show{display:flex}
+.modal{width:100%;max-width:420px;background:#fff;border-radius:20px;padding:22px 18px;box-shadow:0 20px 70px #00182d55;text-align:center}
+.modal-icon{width:64px;height:64px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:#e7f3ff;color:#1687d9;font-size:28px}
+.modal h2{font-size:21px;margin:0 0 7px;color:#123a5a}
+.modal p{font-size:13px;color:#6c8192;margin:0 0 16px}
+.status-line{border:1px solid #dce8f0;background:#f8fbfe;border-radius:12px;padding:12px;text-align:left;font-size:13px;margin:12px 0 16px}
+.status-pill{display:inline-block;border-radius:99px;padding:4px 9px;font-size:11px;font-weight:800;background:#fff0d6;color:#8a5700}
+.modal-close{border:0;background:#eef5fa;color:#36556d;border-radius:11px;padding:11px 16px;font-weight:700;width:100%;cursor:pointer}
+
+@media(min-width:521px){body{padding:18px 0}.wrap{border-radius:24px;overflow:hidden;box-shadow:0 16px 50px #173b5618}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">H</div><div><div class="brandname">Shillong Tours Hire n Go</div><div class="brandtag">Your journey, made simple</div></div></div>
+</header>
+<section class="hero">
+  <div class="eyebrow">Ride booking</div>
+  <h1>Where would you<br>like to go?</h1>
+  <p class="sub">Choose your ride and share your travel details. We’ll help you plan the journey.</p>
+</section>
+<form id="bookingForm">
+  <section class="card">
+    <h2 class="section-title">1. Choose booking type</h2>
+    <div class="options" role="group" aria-label="Booking type">
+      <button type="button" class="opt active" data-type="single"><span>☀</span>Single day</button>
+      <button type="button" class="opt" data-type="multi"><span>▦</span>2–15 days</button>
+      <button type="button" class="opt" data-type="other"><span>＋</span>Other vehicle</button>
+    </div>
+    <input type="hidden" id="bookingType" value="single">
+  </section>
+
+  <section class="card" id="vehicleSection">
+    <h2 class="section-title">2. Select your sedan</h2>
+    <div class="cars">
+      <button type="button" class="car active" data-car="Aura" aria-pressed="true">
+        <div class="car-art"><svg viewBox="0 0 220 100" aria-hidden="true"><ellipse cx="110" cy="82" rx="78" ry="7" fill="#b8d4e6"/><path d="M31 67 Q35 56 52 53 L76 49 94 29 Q100 23 111 23 L147 25 Q157 26 166 39 L181 52 194 58 Q201 61 202 69 L199 76 22 76 23 69Z" fill="#fff" stroke="#7c9eb5" stroke-width="2"/><path d="M82 48 99 30 Q103 27 111 27 L130 28 140 47Z" fill="#a8d9f5"/><path d="M145 29 Q154 31 162 43 L166 48 145 47Z" fill="#a8d9f5"/><path d="M27 63 47 59 48 67 26 68Z" fill="#f8d37a"/><path d="M180 57 195 62 197 67 182 66Z" fill="#f28d87"/><circle cx="62" cy="75" r="13" fill="#30495b"/><circle cx="62" cy="75" r="6" fill="#dce8ef"/><circle cx="163" cy="75" r="13" fill="#30495b"/><circle cx="163" cy="75" r="6" fill="#dce8ef"/><path d="M105 51h24" stroke="#b7cbd8" stroke-width="2"/></svg></div>
+        <div class="car-name">Aura</div><p class="car-note">Sedan</p>
+      </button>
+      <button type="button" class="car" data-car="Frond" aria-pressed="false">
+        <div class="car-art"><svg viewBox="0 0 220 100" aria-hidden="true"><ellipse cx="110" cy="82" rx="78" ry="7" fill="#b8d4e6"/><path d="M31 67 Q35 56 52 53 L76 49 94 29 Q100 23 111 23 L147 25 Q157 26 166 39 L181 52 194 58 Q201 61 202 69 L199 76 22 76 23 69Z" fill="#d8eaf5" stroke="#7c9eb5" stroke-width="2"/><path d="M82 48 99 30 Q103 27 111 27 L130 28 140 47Z" fill="#83c4ec"/><path d="M145 29 Q154 31 162 43 L166 48 145 47Z" fill="#83c4ec"/><path d="M27 63 47 59 48 67 26 68Z" fill="#f8d37a"/><path d="M180 57 195 62 197 67 182 66Z" fill="#f28d87"/><circle cx="62" cy="75" r="13" fill="#30495b"/><circle cx="62" cy="75" r="6" fill="#dce8ef"/><circle cx="163" cy="75" r="13" fill="#30495b"/><circle cx="163" cy="75" r="6" fill="#dce8ef"/><path d="M105 51h24" stroke="#b7cbd8" stroke-width="2"/></svg></div>
+        <div class="car-name">Frond</div><p class="car-note">Sedan</p>
+      </button>
+    </div>
+    <div class="other hidden" id="otherNote">For a different vehicle, tell us what you need in the notes below. We’ll review your request.</div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">3. Travel details</h2>
+    <div class="field"><label for="pickup">Pickup location</label><input id="pickup" required placeholder="e.g. Shillong / Guwahati"></div>
+    <div class="field"><label for="destination">Destination</label><input id="destination" required placeholder="Where are you going?"></div>
+    <div class="grid2">
+      <div class="field"><label for="date">Travel date</label><input id="date" type="date" required></div>
+      <div class="field hidden" id="daysField"><label for="days">Duration</label><select id="days"><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option><option value="6">6 days</option><option value="7">7 days</option><option value="8">8 days</option><option value="9">9 days</option><option value="10">10 days</option><option value="11">11 days</option><option value="12">12 days</option><option value="13">13 days</option><option value="14">14 days</option><option value="15">15 days</option></select></div>
+    </div>
+    <p class="hint" id="durationHint">Single-day bookings are for one day. Multi-day requests can be 2–15 days.</p>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">4. Your contact details</h2>
+    <div class="field"><label for="name">Full name</label><input id="name" autocomplete="name" required placeholder="Your name"></div>
+    <div class="field"><label for="phone">Mobile number</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+ ()-]{7,18}" placeholder="+91"></div>
+    <div class="field"><label for="notes">Additional requirements (optional)</label><textarea id="notes" placeholder="Anything else we should know?"></textarea></div>
+    <button class="submit" type="submit">Review booking request →</button>
+  </section>
+</form>
+<div class="notice" id="notice" role="status"></div>
+
+<div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-icon" id="modalIcon">◷</div>
+    <h2 id="modalTitle">Waiting for operator</h2>
+    <p id="modalMessage">Your request has been sent. Please wait while the operator reviews it.</p>
+    <div class="status-line" id="modalStatus"><strong>Booking status:</strong> <span class="status-pill">Pending</span></div>
+    <button type="button" class="modal-close" id="closeModal">Close</button>
+  </div>
+</div>
+
+<footer class="foot">Shillong Tours Hire n Go · Booking request preview</footer>
+</main>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA3D75a8Z0-nWIYxAfcYIXF6ai4gOl5u2k",
+  authDomain: "shillong-tours-hire-n-go.firebaseapp.com",
+  projectId: "shillong-tours-hire-n-go",
+  storageBucket: "shillong-tours-hire-n-go.firebasestorage.app",
+  messagingSenderId: "923965100478",
+  appId: "1:923965100478:web:ef141541f789e48301a9ef",
+  measurementId: "G-R2KS3JJ4CZ"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+let currentUnsubscribe = null;
+let currentRequestId = null;
+
+const typeButtons=[...document.querySelectorAll('[data-type]')];
+const carButtons=[...document.querySelectorAll('[data-car]')];
+const typeInput=document.getElementById('bookingType');
+const vehicleSection=document.getElementById('vehicleSection');
+const daysField=document.getElementById('daysField');
+const days=document.getElementById('days');
+const date=document.getElementById('date');
+date.min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+let selectedCar='Aura';
+
+function setType(type){
+ typeInput.value=type;
+ typeButtons.forEach(b=>b.classList.toggle('active',b.dataset.type===type));
+ const other=type==='other';
+ vehicleSection.classList.toggle('hidden',other);
+ daysField.classList.toggle('hidden',type!=='multi');
+ document.getElementById('durationHint').textContent=type==='multi'?'Choose a duration between 2 and 15 days.':'Single-day bookings are for one day. Multi-day requests can be 2–15 days.';
+}
+typeButtons.forEach(b=>b.addEventListener('click',()=>setType(b.dataset.type)));
+carButtons.forEach(b=>b.addEventListener('click',()=>{
+ selectedCar=b.dataset.car;
+ carButtons.forEach(c=>{const active=c===b;c.classList.toggle('active',active);c.setAttribute('aria-pressed',String(active));});
+}));
+
+const modal=document.getElementById('bookingModal');
+const modalTitle=document.getElementById('modalTitle');
+const modalMessage=document.getElementById('modalMessage');
+const modalStatus=document.getElementById('modalStatus');
+const modalIcon=document.getElementById('modalIcon');
+document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('show'));
+function showStatus(status){
+ modal.classList.add('show');
+ if(status==='accepted'){
+   modalIcon.textContent='✓'; modalTitle.textContent='Booking confirmed';
+   modalMessage.textContent='The operator has accepted your request. Please keep your phone available for further details.';
+   modalStatus.innerHTML='<strong>Booking status:</strong> <span class="status-pill" style="background:#e5f7ec;color:#17623f">Accepted</span>';
+ }else if(status==='rejected'){
+   modalIcon.textContent='!'; modalTitle.textContent='Cab unavailable';
+   modalMessage.textContent='The operator could not accept this request. Please try another date or vehicle.';
+   modalStatus.innerHTML='<strong>Booking status:</strong> <span class="status-pill" style="background:#ffebeb;color:#a52828">Not accepted</span>';
+ }else{
+   modalIcon.textContent='◷'; modalTitle.textContent='Waiting for operator';
+   modalMessage.textContent='Your request has been sent. Please wait while the operator reviews it.';
+   modalStatus.innerHTML='<strong>Booking status:</strong> <span class="status-pill">Pending</span>';
+ }
+}
+
+document.getElementById('bookingForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const form=e.currentTarget;
+ if(!form.reportValidity()) return;
+ const type=typeInput.value;
+ const request={
+  bookingType:type,
+  vehicle:type==='other'?'Other vehicle':selectedCar,
+  pickup:document.getElementById('pickup').value.trim(),
+  destination:document.getElementById('destination').value.trim(),
+  travelDate:date.value,
+  durationDays:type==='multi'?Number(days.value):1,
+  customerName:document.getElementById('name').value.trim(),
+  customerPhone:document.getElementById('phone').value.trim(),
+  notes:document.getElementById('notes').value.trim(),
+  status:'pending'
+ };
+ const submit=form.querySelector('.submit');
+ submit.disabled=true; submit.textContent='Sending request…';
+ try{
+   const credential=await signInAnonymously(auth);
+   request.customerUid=credential.user.uid;
+   request.createdAt=serverTimestamp();
+   const doc=await addDoc(collection(db,'cabRequests'),request);
+   currentRequestId=doc.id;
+   if(currentUnsubscribe) currentUnsubscribe();
+   currentUnsubscribe=onSnapshot(doc, snap=>{
+     if(snap.exists()) showStatus(snap.data().status||'pending');
+   },err=>{
+     modalTitle.textContent='Live updates unavailable';
+     modalMessage.textContent='Your request may be saved, but this screen could not receive live updates. Please contact the operator.';
+     modalStatus.textContent='Reference: '+currentRequestId;
+     modal.classList.add('show');
+   });
+   showStatus('pending');
+   submit.textContent='Request sent ✓';
+ }catch(err){
+   console.error(err);
+   modalIcon.textContent='!';
+   modalTitle.textContent='Could not send request';
+   modalMessage.textContent='Please check your internet connection and try again. If the problem continues, contact the operator.';
+   modalStatus.textContent='Firebase setup or security rules may need attention.';
+   modal.classList.add('show');
+   submit.disabled=false; submit.textContent='Review booking request →';
+ }
+});
+</script>
+</body>
+</html>
